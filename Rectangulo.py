@@ -21,3 +21,5 @@ class Rectangulo:
         base = abs(self.p1.x - self.p2.x)
         altura = abs(self.p1.y - self.p2.y)      
                                                 
+    def base(self):
+        return abs(self.p1.x - self.p2.x)

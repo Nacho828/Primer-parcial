@@ -46,15 +46,3 @@ def consultar_rectangulo(rectangulo):
     print("Altura del rectángulo:", rectangulo.altura())
     print("Área del rectángulo:", rectangulo.area())
 
-def main():
-    A, B, C, D = crear_puntos()
-    imprimir_puntos(A, B, C, D)
-    consultar_cuadrantes(A, C, D)
-    consultar_vectores(A, B)
-    consultar_distancias(A, B, D)
-    determinar_punto_mas_lejos(A, B, C, D)
-    rectangulo = crear_rectangulo(A, B)
-    consultar_rectangulo(rectangulo)
-
-if __name__ == "__main__":
-    main()
