@@ -1,4 +1,4 @@
-from punto import Punto
+from Punto import Punto
 from Rectangulo import Rectangulo
 def crear_puntos():
     A = Punto(2, 3)
