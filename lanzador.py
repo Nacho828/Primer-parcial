@@ -1,31 +1,40 @@
-
-# Métodos heredados de Punto
-
 from punto import Punto
-from Rectangulo import Rectangulo
+from Rectangulo import Rectangulo  # Ensure the file is named 'rectangulo.py' with the correct case
 
+def recorrer_puntos(puntos):
+    for punto in puntos:
+        print(f"Punto: {punto}, Cuadrante: {punto.cuadrante()}")
 
-def mover(self, dx, dy):
-    self.x += dx
-    self.y += dy
+def recorrer_vectores(puntos):
+    for i in range(len(puntos)):
+        for j in range(i + 1, len(puntos)):
+            print(f"Vector de {puntos[i]} a {puntos[j]}: {puntos[i].vector(puntos[j])}")
 
-def distancia(self, otro_punto):
-    return ((self.x - otro_punto.x) ** 2 + (self.y - otro_punto.y) ** 2) ** 0.5
+def recorrer_distancias(puntos, origen):
+    for punto in puntos:
+        print(f"Distancia de {punto} al origen {origen}: {punto.distancia(origen)}")
 
-# Métodos heredados de Rectangulo
-def area(self):
-    return self.ancho * self.alto
+def recorrer_rectangulos(rectangulos):
+    for rectangulo in rectangulos:
+        print(f"Rectángulo con base {rectangulo.base()} y altura {rectangulo.altura()}, Área: {rectangulo.area()}")
 
-def perimetro(self):
-    return 2 * (self.ancho + self.alto)
+# Lógica principal
+def crear_puntos():
+    A = Punto(0, 0)
+    B = Punto(1, 2)
+    C = Punto(3, 4)
+    D = Punto(-1, -3)
+    return A, B, C, D
 
-def mover(self, dx, dy):
-    self.esquina_inferior_izquierda.mover(dx, dy)
+def crear_rectangulo(p1, p2):
+    return Rectangulo(p1, p2)
 
-def contiene(self, punto):
-    x1 = self.esquina_inferior_izquierda.x
-    y1 = self.esquina_inferior_izquierda.y
-    x2 = x1 + self.ancho
-    y2 = y1 + self.alto
-    return x1 <= punto.x <= x2 and y1 <= punto.y <= y2
+A, B, C, D = crear_puntos()
+puntos = [A, B, C, D]
+recorrer_puntos(puntos)
+recorrer_vectores(puntos)
+recorrer_distancias(puntos, D)
 
+rectangulo = crear_rectangulo(A, B)
+rectangulos = [rectangulo]
+recorrer_rectangulos(rectangulos)
