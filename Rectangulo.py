@@ -3,7 +3,8 @@ class Rectangulo:
     def __init__(self, p1=Punto(), p2=Punto()):
         self.p1 = p1
         self.p2 = p2
-
+        if not isinstance(p1, Punto) or not isinstance(p2, Punto):
+            raise TypeError("p1 and p2 must be instances of Punto")
     def __str__(self):
         return f"Rectangulo: {self.p1}, {self.p2}"
 
