@@ -13,8 +13,7 @@ def main():
     print("Base del rectángulo:", rectangulo.base())
     print("Altura del rectángulo:", rectangulo.altura())
     print("Área del rectángulo:", rectangulo.area())
-    print("Perímetro del rectángulo:", rectangulo.perimetro())
-
+   
 
 if __name__ == "__main__":
     main()
