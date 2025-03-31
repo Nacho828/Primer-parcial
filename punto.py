@@ -1,29 +1,29 @@
-class punto:
-    def __init__(self, x=0, y=0):
+class Punto:
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
     def __str__(self):
-        return f"({self.x},{self.y})"
+        return f"({self.x}, {self.y})"
 
     def cuadrante(self):
-        if self.x == 0 and self.y == 0:
-            return "Origen"
-        elif self.x == 0:
-            return "Eje Y"
-        elif self.y == 0:
-            return "Eje X"
-        elif self.x > 0 and self.y > 0:
-            return "Primer cuadrante"
+        if self.x > 0 and self.y > 0:
+            return "I"
         elif self.x < 0 and self.y > 0:
-            return "Segundo cuadrante"
+            return "II"
         elif self.x < 0 and self.y < 0:
-            return "Tercer cuadrante"
+            return "III"
         elif self.x > 0 and self.y < 0:
-            return "Cuarto cuadrante"
+            return "IV"
+        elif self.x == 0 and self.y != 0:
+            return "Eje Y"
+        elif self.y == 0 and self.x != 0:
+            return "Eje X"
+        else:
+            return "Origen"
 
-    def vector(self, otro_punto):
-        return Punto(otro_punto.x - self.x, otro_punto.y - self.y)
+    def vector(self, other):
+        return (other.x - self.x, other.y - self.y)
 
-    def distancia(self, otro_punto):
-        return ((otro_punto.x - self.x) ** 2 + (otro_punto.y - self.y) ** 2) ** 0.5
+    def distancia(self, other):
+        return ((other.x - self.x)**2 + (other.y - self.y)**2)**0.5

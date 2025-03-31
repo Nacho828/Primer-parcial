@@ -1,40 +1,60 @@
 from punto import Punto
-from Rectangulo import Rectangulo  # Ensure the file is named 'rectangulo.py' with the correct case
-
-def recorrer_puntos(puntos):
-    for punto in puntos:
-        print(f"Punto: {punto}, Cuadrante: {punto.cuadrante()}")
-
-def recorrer_vectores(puntos):
-    for i in range(len(puntos)):
-        for j in range(i + 1, len(puntos)):
-            print(f"Vector de {puntos[i]} a {puntos[j]}: {puntos[i].vector(puntos[j])}")
-
-def recorrer_distancias(puntos, origen):
-    for punto in puntos:
-        print(f"Distancia de {punto} al origen {origen}: {punto.distancia(origen)}")
-
-def recorrer_rectangulos(rectangulos):
-    for rectangulo in rectangulos:
-        print(f"Rectángulo con base {rectangulo.base()} y altura {rectangulo.altura()}, Área: {rectangulo.area()}")
-
-# Lógica principal
+from Rectangulo import Rectangulo
 def crear_puntos():
-    A = Punto(0, 0)
-    B = Punto(1, 2)
-    C = Punto(3, 4)
-    D = Punto(-1, -3)
+    A = Punto(2, 3)
+    B = Punto(5, 5)
+    C = Punto(-3, -1)
+    D = Punto(0, 0)
     return A, B, C, D
 
-def crear_rectangulo(p1, p2):
-    return Rectangulo(p1, p2)
+def imprimir_puntos(A, B, C, D):
+    print("Punto A:", A)
+    print("Punto B:", B)
+    print("Punto C:", C)
+    print("Punto D:", D)
 
-A, B, C, D = crear_puntos()
-puntos = [A, B, C, D]
-recorrer_puntos(puntos)
-recorrer_vectores(puntos)
-recorrer_distancias(puntos, D)
+def consultar_cuadrantes(A, C, D):
+    print("Cuadrante de A:", A.cuadrante())
+    print("Cuadrante de C:", C.cuadrante())
+    print("Cuadrante de D:", D.cuadrante())
 
-rectangulo = crear_rectangulo(A, B)
-rectangulos = [rectangulo]
-recorrer_rectangulos(rectangulos)
+def consultar_vectores(A, B):
+    print("Vector AB:", A.vector(B))
+    print("Vector BA:", B.vector(A))
+
+def consultar_distancias(A, B, D):
+    print("Distancia de A a B:", A.distancia(B))
+    print("Distancia de B a A:", B.distancia(A))
+
+def determinar_punto_mas_lejos(A, B, C, D):
+    distancia_A = A.distancia(D)
+    distancia_B = B.distancia(D)
+    distancia_C = C.distancia(D)
+    mas_lejos = max(distancia_A, distancia_B, distancia_C)
+    if mas_lejos == distancia_A:
+        print("El punto más lejos del origen es A")
+    elif mas_lejos == distancia_B:
+        print("El punto más lejos del origen es B")
+    else:
+        print("El punto más lejos del origen es C")
+
+def crear_rectangulo(A, B):
+    return Rectangulo(A, B)
+
+def consultar_rectangulo(rectangulo):
+    print("Base del rectángulo:", rectangulo.base())
+    print("Altura del rectángulo:", rectangulo.altura())
+    print("Área del rectángulo:", rectangulo.area())
+
+def main():
+    A, B, C, D = crear_puntos()
+    imprimir_puntos(A, B, C, D)
+    consultar_cuadrantes(A, C, D)
+    consultar_vectores(A, B)
+    consultar_distancias(A, B, D)
+    determinar_punto_mas_lejos(A, B, C, D)
+    rectangulo = crear_rectangulo(A, B)
+    consultar_rectangulo(rectangulo)
+
+if __name__ == "__main__":
+    main()
