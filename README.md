@@ -2,6 +2,8 @@
 
 Este es el link a mi repositorio:
 
+https://github.com/Nacho828/Primer-parcial.git
+
 
 # Primer-parcial
 
@@ -23,8 +25,3 @@ Para ejecutar este proyecto, necesitas:
 - [Lista de herramientas o dependencias necesarias, por ejemplo: Python 3.10, Node.js, etc.]
 - [Cualquier otra configuración necesaria].
 
-## Instalación
-Sigue estos pasos para instalar y configurar el proyecto:
-1. Clona este repositorio en tu máquina local:
-   ```bash
-   git clone <URL-del-repositorio>
