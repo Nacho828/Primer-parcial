@@ -1,10 +1,15 @@
 from Punto import Punto
 from Rectangulo import Rectangulo
 def crear_puntos():
-    A = Punto(2, 3)
-    B = Punto(5, 5)
-    C = Punto(-3, -1)
-    D = Punto(0, 0)
+    print("Ingrese las coordenadas de los puntos:")
+    x1, y1 = map(float, input("Punto A (x y): ").split())
+    x2, y2 = map(float, input("Punto B (x y): ").split())
+    x3, y3 = map(float, input("Punto C (x y): ").split())
+    x4, y4 = map(float, input("Punto D (x y): ").split())
+    A = Punto(x1, y1)
+    B = Punto(x2, y2)
+    C = Punto(x3, y3)
+    D = Punto(x4, y4)
     return A, B, C, D
 
 def imprimir_puntos(A, B, C, D):
@@ -42,6 +47,18 @@ def crear_rectangulo(A, B):
     return Rectangulo(A, B)
 
 def consultar_rectangulo(rectangulo):
+    print("Base del rectángulo:", rectangulo.base())
+    print("Altura del rectángulo:", rectangulo.altura())
+    print("Área del rectángulo:", rectangulo.area())
+    
+def lanzada():
+    A, B, C, D = crear_puntos()
+    imprimir_puntos(A, B, C, D)
+    consultar_cuadrantes(A, C, D)
+    consultar_vectores(A, B)
+    consultar_distancias(A, B, D)
+    determinar_punto_mas_lejos(A, B, C, D)
+    rectangulo = crear_rectangulo(A, B)
     print("Base del rectángulo:", rectangulo.base())
     print("Altura del rectángulo:", rectangulo.altura())
     print("Área del rectángulo:", rectangulo.area())
